@@ -2,8 +2,7 @@
 {
     public interface ISettings
     {
-        string UserName { get; }
-        string Pass { get; }
+        string AuthAccessToken { get; }
         string BaseUrl { get; }
     }
 }

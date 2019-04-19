@@ -28,5 +28,10 @@ namespace PhotoReport
         {
             // Handle when your app resumes
         }
+
+        private void InitApp()
+        {
+            
+        }
     }
 }
