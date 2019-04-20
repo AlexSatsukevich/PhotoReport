@@ -1,4 +1,7 @@
-﻿using PhotoReport.Views;
+﻿using PhotoReport.AppManage.IoC;
+using PhotoReport.AppManage.Navigation;
+using PhotoReport.AppManage.Settings;
+using PhotoReport.ViewModels;
 using Xamarin.Forms;
 
 namespace PhotoReport
@@ -8,30 +11,20 @@ namespace PhotoReport
         public App()
         {
             InitializeComponent();
-
-            MainPage = new LoginView();
-
-            //MainPage = new PhotoListView();
-        }
-
-        protected override void OnStart()
-        {
-            // Handle when your app starts
-        }
-
-        protected override void OnSleep()
-        {
-            // Handle when your app sleeps
-        }
-
-        protected override void OnResume()
-        {
-            // Handle when your app resumes
-        }
+            InitApp();
+        }        
 
         private void InitApp()
         {
-            
+            var settings = AppIocResolver.Resolve<ISettings>();
+            var navigation = AppIocResolver.Resolve<INavigationService>();
+
+            settings.TryAuthenticateUser();
+
+            if (string.IsNullOrEmpty(settings.AuthAccessToken))
+                navigation.NavigateToAsync<LoginViewModel>();
+            else
+                navigation.NavigateToAsync<PhotoListViewModel>();                      
         }
     }
 }

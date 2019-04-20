@@ -1,5 +1,16 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="PhotoReport.Views.PhotoListView">
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:ioc="clr-namespace:PhotoReport.AppManage.IoC;assembly=PhotoReport"
+             xmlns:viewModels="clr-namespace:PhotoReport.ViewModels;assembly=PhotoReport"
+             x:Class="PhotoReport.Views.PhotoListView"
+             ioc:AppIocResolver.AutoWireViewModel="true">
+    <d:ContentPage.BindingContext>
+        <viewModels:PhotoListViewModel/>
+    </d:ContentPage.BindingContext>
     <ContentPage.Content>
         <Label Text="PhotoListView"/>
     </ContentPage.Content>
