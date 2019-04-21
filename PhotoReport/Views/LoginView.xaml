@@ -17,7 +17,7 @@
             <Entry Placeholder="Your name here"/>
             <Label Text="Password"/>
             <Entry Placeholder="Your password here" IsPassword="true"/>
-            <Button Text="Login"/>
+            <Button Text="Login" Command="{Binding LoginCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

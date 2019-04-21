@@ -4,6 +4,7 @@ using System.Reflection;
 using Autofac;
 using PhotoReport.AppManage.Navigation;
 using PhotoReport.AppManage.Settings;
+using PhotoReport.ViewModels;
 using Xamarin.Forms;
 
 namespace PhotoReport.AppManage.IoC
@@ -15,6 +16,9 @@ namespace PhotoReport.AppManage.IoC
         static AppIocResolver()
         {
             var builder = new ContainerBuilder();
+
+            builder.RegisterType<LoginViewModel>();
+            builder.RegisterType<PhotoListViewModel>();
 
             builder.RegisterType<AppSettings>().As<ISettings>();
             builder.RegisterType<NavigationService>().As<INavigationService>();

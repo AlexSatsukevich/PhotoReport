@@ -1,5 +1,6 @@
-﻿using System;
+﻿using Xamarin.Forms;
 using PhotoReport.ViewModels.Base;
+using System.Windows.Input;
 
 namespace PhotoReport.ViewModels
 {
@@ -8,5 +9,10 @@ namespace PhotoReport.ViewModels
         public LoginViewModel()
         {
         }
+
+        public ICommand LoginCommand => new Command(() =>
+        {
+            NavigationService.SetRoot<PhotoListViewModel>();            
+        });
     }
 }
